@@ -1,0 +1,35 @@
+{
+  "name": "modal-plugin",
+  "version": "1.0.0",
+  "description": "(React modal plugin)",
+  "main": "dist/Modal.js",
+  "scripts": {
+    "build": "babel src/Modal.jsx -o dist/Modal.js"
+  },
+  "author": "Benjamin Siret",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@mui/material": "^5.14.17",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
+    ]
+  }
+}
