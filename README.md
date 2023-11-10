@@ -1,10 +1,10 @@
-# Modal-Plugin
+# React Essential Modal
 This plugin is a modal component for React, with style customization using **Material-UI (MUI).**
 
 ### Installation
 Install the plugin with npm:
 
-```npm install modal-plugin```
+```npm install react-essential-modal```
 
 If MUI is **not** installed in your application:
 ```npm install @mui/material @emotion/react @emotion/styled```
@@ -12,7 +12,7 @@ If MUI is **not** installed in your application:
 ### Usage
 Import the plugin into your React file:
 
-```import Modal from 'modal-plugin'```
+```import Modal from 'react-essential-modal'```
 
 Use the Modal component in your code:
 ```javascript
