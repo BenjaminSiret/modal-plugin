@@ -1,5 +1,6 @@
 # React Essential Modal
-This plugin is a modal component for React, with style customization using **Material-UI (MUI).**
+This plugin is a modal component for React, with style customization using **Material-UI (MUI).**  
+https://www.npmjs.com/package/react-essential-modal
 
 ### Installation
 Install the plugin with npm:
