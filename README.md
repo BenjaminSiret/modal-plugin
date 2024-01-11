@@ -21,7 +21,7 @@ Use the Modal component in your code:
 ```
 
 You can customize the style of the overlay, modal, and button using the necessary props.
-:raised_hand: Pay attention, only *variants* from **MUI** are accepted for the button.
+Pay attention, only *variants* from **MUI** are accepted for the button.
 
 ```javascript
 <Modal
