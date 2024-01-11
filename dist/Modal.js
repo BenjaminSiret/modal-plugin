@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-var _react = _interopRequireDefault(require("react"));
-var _Box = _interopRequireDefault(require("@mui/material/Box"));
-var _Button = _interopRequireDefault(require("@mui/material/Button"));
-var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -21,15 +17,13 @@ function Modal(_ref) {
   var isOpen = _ref.isOpen,
     onClose = _ref.onClose,
     message = _ref.message,
-    overlayStyles = _ref.overlayStyles,
-    modalStyles = _ref.modalStyles,
-    buttonStyles = _ref.buttonStyles,
-    _ref$buttonVariant = _ref.buttonVariant,
-    buttonVariant = _ref$buttonVariant === void 0 ? "contained" : _ref$buttonVariant,
+    overlayStyle = _ref.overlayStyle,
+    modalStyle = _ref.modalStyle,
+    buttonStyle = _ref.buttonStyle,
     _ref$buttonText = _ref.buttonText,
     buttonText = _ref$buttonText === void 0 ? "Close" : _ref$buttonText;
   if (!isOpen) return null;
-  var defaultOverlayStyles = {
+  var defaultOverlayStyle = {
     position: "fixed",
     top: 0,
     left: 0,
@@ -39,9 +33,9 @@ function Modal(_ref) {
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.5)",
-    zIndex: 100
+    zIndex: 1000
   };
-  var defaultModalStyles = {
+  var defaultModalStyle = {
     backgroundColor: "white",
     padding: "20px 30px",
     display: "flex",
@@ -52,25 +46,26 @@ function Modal(_ref) {
     borderRadius: "4px",
     gap: "20px"
   };
-  var defaultButtonStyles = {
-    maxWidth: "70px"
+  var defaultButtonStyle = {
+    maxWidth: "70px",
+    padding: "5px 10px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    backgroundColor: "#667910",
+    color: "white"
   };
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
-    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Box["default"], {
-      sx: _objectSpread(_objectSpread({}, defaultOverlayStyles), overlayStyles),
-      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Box["default"], {
-        sx: _objectSpread(_objectSpread({}, defaultModalStyles), modalStyles),
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Typography["default"], {
-          gutterBottom: true,
-          variant: "body1",
-          children: message
-        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button["default"], {
-          onClick: onClose,
-          variant: buttonVariant,
-          sx: _objectSpread(_objectSpread({}, defaultButtonStyles), buttonStyles),
-          children: buttonText
-        })]
-      })
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    style: _objectSpread(_objectSpread({}, defaultOverlayStyle), overlayStyle),
+    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: _objectSpread(_objectSpread({}, defaultModalStyle), modalStyle),
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+        children: message
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+        onClick: onClose,
+        style: _objectSpread(_objectSpread({}, defaultButtonStyle), buttonStyle),
+        children: buttonText
+      })]
     })
   });
 }
@@ -78,10 +73,9 @@ Modal.propTypes = {
   isOpen: _propTypes["default"].bool.isRequired,
   onClose: _propTypes["default"].func.isRequired,
   message: _propTypes["default"].string,
-  overlayStyles: _propTypes["default"].object,
-  modalStyles: _propTypes["default"].object,
-  buttonStyles: _propTypes["default"].object,
-  buttonVariant: _propTypes["default"].string,
+  overlayStyle: _propTypes["default"].object,
+  modalStyle: _propTypes["default"].object,
+  buttonStyle: _propTypes["default"].object,
   buttonText: _propTypes["default"].string
 };
 var _default = exports["default"] = Modal;

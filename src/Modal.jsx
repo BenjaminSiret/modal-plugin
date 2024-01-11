@@ -1,22 +1,17 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
 function Modal({
   isOpen,
   onClose,
   message,
-  overlayStyles,
-  modalStyles,
-  buttonStyles,
-  buttonVariant = "contained",
+  overlayStyle,
+  modalStyle,
+  buttonStyle,
   buttonText = "Close",
 }) {
   if (!isOpen) return null;
 
-  const defaultOverlayStyles = {
+  const defaultOverlayStyle = {
     position: "fixed",
     top: 0,
     left: 0,
@@ -26,10 +21,10 @@ function Modal({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.5)",
-    zIndex: 100,
+    zIndex: 1000,
   };
 
-  const defaultModalStyles = {
+  const defaultModalStyle = {
     backgroundColor: "white",
     padding: "20px 30px",
     display: "flex",
@@ -41,27 +36,25 @@ function Modal({
     gap: "20px",
   };
 
-  const defaultButtonStyles = {
+  const defaultButtonStyle = {
     maxWidth: "70px",
+    padding: "5px 10px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    backgroundColor: "#667910",
+    color: "white",
   };
 
   return (
-    <>
-      <Box sx={{ ...defaultOverlayStyles, ...overlayStyles }}>
-        <Box sx={{ ...defaultModalStyles, ...modalStyles }}>
-          <Typography gutterBottom variant="body1">
-            {message}
-          </Typography>
-          <Button
-            onClick={onClose}
-            variant={buttonVariant}
-            sx={{ ...defaultButtonStyles, ...buttonStyles }}
-          >
-            {buttonText}
-          </Button>
-        </Box>
-      </Box>
-    </>
+    <div style={{ ...defaultOverlayStyle, ...overlayStyle }}>
+      <div style={{ ...defaultModalStyle, ...modalStyle }}>
+        <p>{message}</p>
+        <button onClick={onClose} style={{ ...defaultButtonStyle, ...buttonStyle }}>
+          {buttonText}
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -69,10 +62,9 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   message: PropTypes.string,
-  overlayStyles: PropTypes.object,
-  modalStyles: PropTypes.object,
-  buttonStyles: PropTypes.object,
-  buttonVariant: PropTypes.string,
+  overlayStyle: PropTypes.object,
+  modalStyle: PropTypes.object,
+  buttonStyle: PropTypes.object,
   buttonText: PropTypes.string,
 };
 
